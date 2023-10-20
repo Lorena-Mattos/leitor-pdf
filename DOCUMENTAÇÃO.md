@@ -25,14 +25,14 @@ Siga as etapas a seguir para utilizar este projeto:
   ```bash
   pip install pdfplumber watchdog openpyxl
 
-### Manual do Código Python para Leitura e Extração de Dados de Arquivos PDF
+## Manual do Código Python para Leitura e Extração de Dados de Arquivos PDF
 
 Este manual descreve as principais funcionalidades do código Python fornecido para a leitura e extração de
 informações de arquivos PDF. O código utiliza bibliotecas como pdfplumber, watchdog, openpyxl, e re para realizar a
 tarefa. O código tem como objetivo monitorar uma pasta específica para arquivos PDF e extrair informações desses
 arquivos, armazenando-as em um arquivo Excel.
 
-## 1. Configuração Inicial:
+### 1. Configuração Inicial:
 
 Certifique-se de que todas as bibliotecas necessárias estejam instaladas no seu ambiente Python.
 
@@ -42,7 +42,7 @@ da sua pasta de interesse.
 O código cria um arquivo Excel para armazenar as informações extraídas. Os cabeçalhos das colunas são definidos na
 primeira linha da planilha.
 
-## 2. Extração de Informações de Arquivos PDF:
+### 2. Extração de Informações de Arquivos PDF:
 
 O código monitora a pasta definida e extrai informações dos arquivos PDF sempre que um novo arquivo é adicionado à
 pasta.
@@ -59,21 +59,21 @@ específicas, como banco, data de pagamento, CPF/CNPJ, valor a pagar e código d
 
 Qualquer arquivo PDF que não contenha nenhuma das palavras-chave é ignorado.
 
-## 3. Monitoramento Contínuo:
+### 3. Monitoramento Contínuo:
 
 O código utiliza a biblioteca watchdog para monitorar a pasta de PDFs continuamente. Quando um novo arquivo PDF é
 adicionado à pasta, a função de manipulação é chamada para extrair informações desse arquivo.
 
 Para encerrar o monitoramento, você pode pressionar Ctrl + C no terminal onde o código está sendo executado.
 
-## 4. Relatório e Exportação:
+### 4. Relatório e Exportação:
 
 Após o processamento de todos os arquivos PDF, o código gera um relatório que lista os arquivos PDF adicionados,
 juntamente com a data e hora da adição. O relatório é salvo em um arquivo de texto.
 
 O arquivo Excel contendo as informações extraídas é salvo com um nome baseado na data e hora atual.
 
-## 5. Personalização:
+### 5. Personalização:
 
 Antes de executar o código, certifique-se de configurar corretamente o caminho da pasta de PDFs, bem como os detalhes
 de extração específicos para o seu caso de uso.
