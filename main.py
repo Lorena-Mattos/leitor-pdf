@@ -159,6 +159,9 @@ def extract_info_and_write_to_excel(pdf_file_path):
                     [contribuinte_text, emissor_text, serie_text, numero_text, cpf_text, valor_ato_text,
                      valor_pagar_text, data_pagamento_text, codigo_de_barras_text])
 
+                # Salvar o arquivo Excel após o processamento de todos os arquivos PDF
+                excel_file.save(rf"C:\Users\lorena.machado\Documents\leitor-pdf-boletos\relatorio_{data_atual}.xlsx")
+
                 keyword_found = True
                 print(f"Palavra-chave 'GRERJ' encontrada no arquivo: {pdf_file_path}")
                 # Faça o que você precisa fazer com a palavra-chave 'GRERJ' aqui
@@ -167,10 +170,6 @@ def extract_info_and_write_to_excel(pdf_file_path):
     if not keyword_found:
         # Palavra-chave não encontrada, continue o monitoramento
         print(f"Palavra-chave não encontrada no arquivo: {pdf_file_path}")
-
-
-# Salvar o arquivo Excel após o processamento de todos os arquivos PDF
-excel_file.save(rf"C:\Users\lorena.machado\Documents\leitor-pdf-boletos\relatorio_{data_atual}.xlsx")
 
 
 # Função para lidar com eventos de novos arquivos na pasta "pdf"
