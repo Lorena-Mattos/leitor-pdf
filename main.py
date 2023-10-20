@@ -18,6 +18,10 @@ excel_worksheet.append(
     ["Contribuinte", "Emissor", "Série", "Nº", "CPF/CNPJ", "VALOR DO ATO", "VALOR A PAGAR", "PAGÁVEL ATÉ",
      "Código de Barras"])
 
+data_atual = datetime.now().strftime("%d-%m-%Y")
+# Salvar o arquivo Excel após o processamento de todos os arquivos PDF
+excel_file.save(rf"C:\Users\lorena.machado\Documents\leitor-pdf-boletos\relatorio_{data_atual}.xlsx")
+
 # Lista para armazenar informações sobre os PDFs adicionados
 pdf_info_list = []
 
@@ -165,6 +169,10 @@ def extract_info_and_write_to_excel(pdf_file_path):
         print(f"Palavra-chave não encontrada no arquivo: {pdf_file_path}")
 
 
+# Salvar o arquivo Excel após o processamento de todos os arquivos PDF
+excel_file.save(rf"C:\Users\lorena.machado\Documents\leitor-pdf-boletos\relatorio_{data_atual}.xlsx")
+
+
 # Função para lidar com eventos de novos arquivos na pasta "pdf"
 class PDFHandler(FileSystemEventHandler):
     def on_created(self, event):
@@ -195,12 +203,8 @@ except KeyboardInterrupt:
 
 observer.join()
 
-data_atual = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 # Salvar as informações em um arquivo de texto
 report_file_path = rf'C:\Users\lorena.machado\Documents\leitor-pdf-boletos\pdf_report_{data_atual}.txt'
 with open(report_file_path, 'w') as report_file:
     for info in pdf_info_list:
         report_file.write(info + '\n')
-
-# Salvar o arquivo Excel após o processamento de todos os arquivos PDF
-excel_file.save(rf"C:\Users\lorena.machado\Documents\leitor-pdf-boletos\relatorio_{data_atual}.xlsx")
